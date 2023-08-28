@@ -1,21 +1,15 @@
 class Solution {
 public:
     int countElements(vector<int>& nums) {
-        long long int c=0,curr_max=INT_MIN,curr_min=INT_MAX;
-        for(int i=0;i<nums.size();i++)
+        int count=0;
+        int j=0;
+        int maxi = *max_element(nums.begin(),nums.end());
+        int mini = *min_element(nums.begin(),nums.end());
+        while(j < nums.size())
         {
-            if(nums[i]>curr_max)
-            curr_max=nums[i];
-            if(nums[i]<curr_min)
-            curr_min=nums[i];
+            if((nums[j] > mini) && (nums[j] < maxi)) count++;
+            j++;
         }
-        for(int i=0;i<nums.size();i++)
-        {
-            if(nums[i]>curr_min && nums[i]<curr_max)
-            {
-                c++;
-            }
-        }
-        return c;
+        return count;
     }
 };
