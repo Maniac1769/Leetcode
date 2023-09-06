@@ -1,22 +1,24 @@
 class Solution {
 public:
     bool isAnagram(string s, string t) {
-        unordered_map<int, int> m,r;
-        if(s.length()==t.length())
+        int n=s.length();
+        int m=t.length();
+        if(m!=n)
+        return false;
+        else
         {
-        for(int i=0;i<s.length();i++)
-        {
-            m[s[i]]++;
-            m[t[i]]--;
-        }
-        for (auto x : m) {
-            if (x.second != 0) {
+            vector<int>visited(26,0);
+            for(int i=0;i<n;i++)
+            {
+                visited[s[i]-'a']++;
+                visited[t[i]-'a']--;
+            }
+            for(int i=0;i<26;i++)
+            {
+                if(visited[i]!=0)
                 return false;
             }
         }
-            return true;
-        }
-        else
-            return false;
+        return true;
     }
 };
