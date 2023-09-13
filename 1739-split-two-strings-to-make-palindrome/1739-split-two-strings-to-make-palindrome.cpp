@@ -1,18 +1,26 @@
 class Solution {
 public:
-    int n;
-    bool isPalindrome(string s,int i,int j) {
-        while (i < j && s[i] == s[j])
-            i++, j--;
-        return i >= j;
-    }
-    bool checkPalindrome(string a, string b){
-        int i=0,j=a.size()-1;
-        while(i<j && a[i]==b[j])
-            i++,j--;
-        return isPalindrome(a,i,j) || isPalindrome(b,i,j);
-    }
     bool checkPalindromeFormation(string a, string b) {
-        return checkPalindrome(a,b) ||checkPalindrome(b,a);
+        return check(a, b) || check(b, a);
+    }
+
+private: bool check(string a, string b) {
+        int left = 0, right = a.size() - 1;
+
+        while (left < right && a[left] == b[right]) {
+            ++left;
+            --right;
+        }
+
+        return isPalindrome(a, left, right) || isPalindrome(b, left, right);
+    }
+
+private: bool isPalindrome(string s, int left, int right) {
+        while (left < right && s[left] == s[right]) {
+            ++left;
+            --right;
+        }
+
+        return left >= right;
     }
 };
