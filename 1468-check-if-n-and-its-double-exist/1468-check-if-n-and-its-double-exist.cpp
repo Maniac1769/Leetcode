@@ -1,14 +1,19 @@
-// Solution 3 (Two-pointers)
 class Solution {
 public:
-    bool checkIfExist(vector<int>& arr) 
-    {
-        for (int i = 0; i < arr.size(); i++) {
-            for (int j = i + 1; j < arr.size(); j++) {
-                if ( arr[i] == (2 * arr[j]) || arr[j] == (2 * arr[i]))
-                    return true;
-            }
-        }
-        return false;
+    bool checkIfExist(vector<int>& arr) {
+     map <int,int> mp;
+     for(int i = 0;i<arr.size();i++){
+         int val1 = arr[i] * 2;
+         int val2;
+         if(arr[i] % 2 == 0){
+             val2 = arr[i] / 2;
+         }
+         if((mp.count(val1) != 0) || (mp.count(val2) != 0)){
+             return true;
+             break;
+         }
+         mp[arr[i]]++;
+     }
+     return false;
     }
 };
