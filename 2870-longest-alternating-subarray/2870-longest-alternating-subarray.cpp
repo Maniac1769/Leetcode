@@ -1,23 +1,33 @@
 class Solution {
 public:
     int alternatingSubarray(vector<int>& nums) {
-        int ans = 0;
-        
-        for(int i = 0; i < nums.size(); i++) {
-            int diff = 1;
-            for(int j = i+1; j < nums.size(); j++) {
-                if(nums[j] - nums[j-1] == diff) {
-                    ans = max(ans, j-i+1);
-                } 
-                else {
-                    break;
+        int n = nums.size(),i = 0,j = 1,maxi = -1;
+        bool ch = false;
+        while(j < n){
+            if(!ch){
+                if(nums[j] - nums[j-1] == 1){
+                    ch = true;
+                    maxi = max(maxi,j - i + 1);
                 }
-                diff = -diff;
+                else
+                    i = j;
             }
+            else{
+                if(nums[j] - nums[j-1] == -1){
+                    ch = false;
+                    maxi = max(maxi,j - i + 1);
+                }
+                else if(nums[j] - nums[j-1] == 1){
+                    i = j - 1;
+                    maxi = max(maxi,j - i + 1);
+                }
+                else{
+                    ch = false;
+                    i = j;
+                }
+            }
+            j++;
         }
-        
-        if(ans == 0)
-            return -1;
-        return ans;
+        return maxi;
     }
 };
