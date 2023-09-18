@@ -1,32 +1,24 @@
 class Solution {
 public:
     vector<vector<int>> findDifference(vector<int>& nums1, vector<int>& nums2) {
-        int n1 = nums1.size(),n2 = nums2.size();
-        set<int> ans1, ans2;
-        int i = 0 ,j = 0;
-        vector<int>v1,v2;
-        
-        unordered_map<int, int> m;
-        unordered_map<int, int> m1;
-        
-         while(i < n1 || j < n2) {
-            if( i < n1 ) m[nums1[i++]]++;    
-            if( j < n2 ) m1[nums2[j++]]++;
+        int m= nums1.size();
+        int n= nums2.size();
+        int arr[2001]={0};
+        vector<vector<int>> answer(2);
+        for(int i=0;i<m;i++){
+            arr[nums1[i]+1000]+=10;
         }
-
-        i  = 0 ,j = 0;
-         while(i < n1 || j < n2) {
-            if( i < n2  && m[nums2[i]] == 0) ans2.insert (nums2[i]);    
-            if( j < n1 && m1[nums1[j]] == 0) ans1.insert(nums1[j]);
-            i++;
-            j++;
+        for(int i=0;i<n;i++){
+            arr[nums2[i]+1000]--;
         }
-
-
-        for(auto i : ans1) v1.push_back(i);
-        for(auto i : ans2) v2.push_back(i);
-
-        return {v1, v2};
-
+        for(int i=0;i<2001;i++){
+            if(arr[i]%10==0&&arr[i]!=0){
+                answer[0].push_back(i-1000);
+            }
+            if(arr[i]<0){
+                answer[1].push_back(i-1000);
+            }
+        }
+        return answer;
     }
 };
