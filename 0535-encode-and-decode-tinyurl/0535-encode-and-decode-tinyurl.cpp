@@ -1,21 +1,18 @@
 class Solution {
-private:
-    int codedValue = 0;
-    unordered_map<string,string> TinyXReal;
 public:
-
+    map<string, string> mp;
+    int n = 0;
     // Encodes a URL to a shortened URL.
     string encode(string longUrl) {
-        string encoded_str = "http://sup//" + to_string(codedValue);
-        codedValue++;
-        TinyXReal[encoded_str] = longUrl;
-
-        return encoded_str;
+        string encoded = "http://tinyurl.com/" + to_string(n);
+        n++;
+        mp[encoded] = longUrl;
+        return encoded;
     }
 
     // Decodes a shortened URL to its original URL.
     string decode(string shortUrl) {
-        return TinyXReal[shortUrl];
+        return mp[shortUrl];
     }
 };
 
