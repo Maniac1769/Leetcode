@@ -1,14 +1,17 @@
 class Solution {
 public:
-    // time/space: O(n)/O(n)
     vector<string> getWordsInLongestSubsequence(int n, vector<string>& words, vector<int>& groups) {
-        vector<string> result;
-        int target_group = groups[0];
-        for (int i = 0; i < n; i++) {
-            if (target_group != groups[i]) continue;
-            result.push_back(words[i]);
-            target_group = (target_group + 1) & 1;
+        vector<string>ans;
+        int t=groups[0];
+        ans.push_back(words[0]);
+        for(int i=1;i<n;i++)
+        {
+            if(groups[i]!=t)
+            {
+                t=groups[i];
+                ans.push_back(words[i]);
+            }
         }
-        return result;
+        return ans;
     }
 };
