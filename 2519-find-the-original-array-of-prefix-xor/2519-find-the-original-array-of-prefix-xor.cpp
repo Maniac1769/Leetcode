@@ -1,13 +1,19 @@
+#pragma GCC optimize("O3")
 class Solution {
 public:
     vector<int> findArray(vector<int>& pref) {
-        int prev = pref[0];
-        
-        for (int i = 1; i < pref.size(); i++) {
-            pref[i] ^= prev;
-            prev ^= pref[i];
-        }
-        
-        return pref;        
+        int n=pref.size();
+        vector<int> ans(n);
+        ans[0]=pref[0];
+        for(int i=1; i<n; i++)
+            ans[i]=pref[i-1]^pref[i];
+        return  ans;
     }
 };
+auto init = []()
+{ 
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    return 'c';
+}();
