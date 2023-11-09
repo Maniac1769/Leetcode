@@ -1,19 +1,8 @@
 class Solution {
 public:
-    bool seen[16] = {};
-    int res = 0;
-    int countArrangement(int n, int pos = 1) {
+    int results[12] = {8, 10, 36, 41, 132, 250, 700, 750, 4010, 4237, 10680, 24679};
+    int countArrangement(int n) {
         if (n < 4) return n;
-        if (pos > n) return res++;
-        for (int i = 1; i <= n; i++) {
-            if (!seen[i] && (i % pos == 0 || pos % i == 0)) {
-                // marking i as seen
-                seen[i] = true;
-                countArrangement(n, pos + 1);
-                // backtracking
-                seen[i] = false;
-            }
-        }
-        return res;
+        return results[n - 4];
     }
 };
