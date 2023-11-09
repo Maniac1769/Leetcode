@@ -1,14 +1,19 @@
 class Solution {
 public:
-    bool func(int ind, vector<int>& arr, vector<int>& vis){
-        if(ind >= arr.size() || ind < 0) return false;
-        if(vis[ind] == 1) return false;
-        if(arr[ind] == 0) return true;
-        vis[ind] = 1;
-        return func(ind+arr[ind], arr, vis) | func(ind-arr[ind], arr, vis);
+    bool solve(vector<int>& arr, int s, vector<bool>&vis){
+        if(s<0 || s>arr.size()-1 || vis[s]){
+            return 0;
+        }
+
+        if(arr[s]==0){
+            return 1;
+        }
+
+        vis[s]=true;
+        return solve(arr,s+arr[s],vis)||solve(arr,s-arr[s],vis);
     }
-    bool canReach(vector<int>& arr, int start) {
-        vector<int> vis(arr.size(), 0);
-        return func(start, arr, vis);
+    bool canReach(vector<int>& arr, int s) {
+        vector<bool>vis(arr.size(),false);
+        return solve( arr, s,vis);
     }
 };
