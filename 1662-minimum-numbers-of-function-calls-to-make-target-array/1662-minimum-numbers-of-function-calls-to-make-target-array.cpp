@@ -1,43 +1,23 @@
-    class Solution {
-    public:
+class Solution {
+public:
     int minOperations(vector<int>& nums) {
-        int ans = 0;
-             
-        while(1)
-        {
-            int flag = 0;
-            int count = 0;
-           for(auto &i:nums) 
-           {
-               if(i>1)
-               {
-                   if(i%2) ans++;
-                   i/=2;
-                   count ++;
-               }
-           }
-            
-            if(count > 0)
-            ans++;
-            
-            for(auto &i:nums)
-            {
-                if(i==1)
-                {
-                    i--;
-                    ans++;
+        int n=nums.size();
+        int cnt=0;
+        int maxi=0;
+        for(int i=0;i<n;i++){
+            int res=0;
+            while(nums[i]>0){
+                if(nums[i]%2==1){
+                    nums[i]--;
+                    cnt++;
+                }
+                while(nums[i]%2==0 and nums[i]>0){
+                    nums[i]/=2;
+                    res++;
                 }
             }
-            
-            for(auto &i:nums)
-            {
-                if(!i) flag++;
-            }
-            
-            if(flag == nums.size()) break;
-            
+            maxi=max(maxi,res);
         }
-        
-        return ans;
+        return cnt+maxi;
     }
-};  //Upvote if you found this useful.
+};
