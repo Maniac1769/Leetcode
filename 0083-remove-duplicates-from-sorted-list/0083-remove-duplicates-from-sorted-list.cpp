@@ -7,8 +7,8 @@ public:
             if (temp->next->val==temp->val)
             {
                 temp->next=temp->next->next;
-                continue;
             }
+            else
             temp=temp->next;
         }
         return head;
