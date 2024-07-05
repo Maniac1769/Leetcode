@@ -5,6 +5,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0021-merge-two-sorted-lists](https://github.com/Maniac1769/Leetcode/tree/master/0021-merge-two-sorted-lists) |
+| [0160-intersection-of-two-linked-lists](https://github.com/Maniac1769/Leetcode/tree/master/0160-intersection-of-two-linked-lists) |
 | [0206-reverse-linked-list](https://github.com/Maniac1769/Leetcode/tree/master/0206-reverse-linked-list) |
 | [0816-design-hashset](https://github.com/Maniac1769/Leetcode/tree/master/0816-design-hashset) |
 | [0817-design-hashmap](https://github.com/Maniac1769/Leetcode/tree/master/0817-design-hashmap) |
@@ -17,6 +18,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Two Pointers
 |  |
 | ------- |
+| [0160-intersection-of-two-linked-lists](https://github.com/Maniac1769/Leetcode/tree/master/0160-intersection-of-two-linked-lists) |
 | [0908-middle-of-the-linked-list](https://github.com/Maniac1769/Leetcode/tree/master/0908-middle-of-the-linked-list) |
 ## Recursion
 |  |
@@ -31,6 +33,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Hash Table
 |  |
 | ------- |
+| [0160-intersection-of-two-linked-lists](https://github.com/Maniac1769/Leetcode/tree/master/0160-intersection-of-two-linked-lists) |
 | [0816-design-hashset](https://github.com/Maniac1769/Leetcode/tree/master/0816-design-hashset) |
 | [0817-design-hashmap](https://github.com/Maniac1769/Leetcode/tree/master/0817-design-hashmap) |
 ## Design
