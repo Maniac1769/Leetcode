@@ -25,7 +25,7 @@ public:
         int ans=0;
         
         ListNode* midNode=findMiddleNode(head);
-        ListNode* head2=reverse(midNode);
+        ListNode* head2=reverse(midNode->next);
         
         midNode->next=NULL;
         
