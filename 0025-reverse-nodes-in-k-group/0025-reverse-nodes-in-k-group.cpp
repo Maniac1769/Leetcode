@@ -30,7 +30,7 @@ public:
 // a given position in the linked list
 ListNode* getKthNode(ListNode* temp, int k) {
     // Loop k-1 times or until temp becomes NULL
-    for (int i = 1; i < k && temp != NULL; ++i) {
+    for (int i = 0; i < k-1 && temp != NULL; ++i) {
         // Move to the next node
         temp = temp->next;
     }
