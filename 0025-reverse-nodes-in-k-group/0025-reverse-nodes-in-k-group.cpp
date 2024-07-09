@@ -28,23 +28,15 @@ public:
 
 // Function to get the Kth node from
 // a given position in the linked list
-ListNode* getKthNode(ListNode* temp, int k){
-    // Decrement K as we already
-    // start from the 1st node
-    k -= 1; 
-
-    // Decrement K until it reaches
-    // the desired position
-    while(temp != NULL && k > 0){
-        // Decrement k as temp progresses
-        k--; 
-        
+ListNode* getKthNode(ListNode* temp, int k) {
+    // Loop k-1 times or until temp becomes NULL
+    for (int i = 1; i < k && temp != NULL; ++i) {
         // Move to the next node
-        temp = temp -> next; 
+        temp = temp->next;
     }
     
     // Return the Kth node
-    return temp; 
+    return temp;
 }
 
 // Function to reverse nodes in groups of K
