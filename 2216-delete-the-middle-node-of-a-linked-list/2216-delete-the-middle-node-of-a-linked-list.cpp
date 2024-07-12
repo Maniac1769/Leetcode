@@ -10,25 +10,21 @@
  */
 class Solution {
 public:
-    ListNode* deleteMiddle(ListNode* head) 
-    {
-        if(head==NULL || head->next==NULL)
+    ListNode* deleteMiddle(ListNode* head) {
+        std::ios_base::sync_with_stdio(false);
+        std::cin.tie(nullptr);
+        std::cout.tie(nullptr);
+        if(!head || !head->next)
             return NULL;
-        ListNode *slow=head;
-        ListNode *fast=head->next;
-        ListNode *back=NULL;            
-        while(fast!=NULL)
+        ListNode *slow =head,*fast = head,*prev=NULL;
+        while(fast && fast->next)
         {
-            fast=fast->next;
-            if(fast!=NULL)
-                fast=fast->next;
-            back=slow;
-            slow=slow->next;
-            if(slow==fast)
-                break;
-        }    
-        back->next=slow->next;          // break the link with the middle node
-        delete(slow);                   // delete the memory space
+            prev = slow;
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        prev->next = prev->next->next;
         return head;
+        
     }
 };
