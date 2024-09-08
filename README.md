@@ -54,6 +54,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0816-design-hashset](https://github.com/Maniac1769/Leetcode/tree/master/0816-design-hashset) |
 | [0817-design-hashmap](https://github.com/Maniac1769/Leetcode/tree/master/0817-design-hashmap) |
+| [1538-maximum-points-you-can-obtain-from-cards](https://github.com/Maniac1769/Leetcode/tree/master/1538-maximum-points-you-can-obtain-from-cards) |
 ## Hash Table
 |  |
 | ------- |
@@ -85,4 +86,12 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [2573-remove-nodes-from-linked-list](https://github.com/Maniac1769/Leetcode/tree/master/2573-remove-nodes-from-linked-list) |
+## Sliding Window
+|  |
+| ------- |
+| [1538-maximum-points-you-can-obtain-from-cards](https://github.com/Maniac1769/Leetcode/tree/master/1538-maximum-points-you-can-obtain-from-cards) |
+## Prefix Sum
+|  |
+| ------- |
+| [1538-maximum-points-you-can-obtain-from-cards](https://github.com/Maniac1769/Leetcode/tree/master/1538-maximum-points-you-can-obtain-from-cards) |
 <!---LeetCode Topics End-->
