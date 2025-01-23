@@ -3,26 +3,43 @@ public:
     ListNode* reverseBetween(ListNode* head, int left, int right) {
         if (head == nullptr || left == right) return head;
 
-        ListNode dummy(0);
-        dummy.next = head;
-        ListNode* pre = &dummy;
-
-        // Move pre to the node before the left position
+        ListNode *q = nullptr; // Node before the left position
+        ListNode *l = head;    // Node at left position
+        // Move l to left position and q to its predecessor
         for (int i = 0; i < left - 1; ++i) {
-            pre = pre->next;
+            q = l;
+            l = l->next;
         }
 
-        ListNode* current = pre->next;
-        ListNode* next_node = nullptr;
+        ListNode *r = head;    // Node at right position
+        // Move r to right position
+        for (int i = 0; i < right - 1; ++i) {
+            r = r->next;
+        }
+        ListNode *s = r->next; // Node after right position
 
-        // Reverse the sublist from left to right
-        for (int i = 0; i < right - left; ++i) {
+        // Reverse the sublist from l to r
+        ListNode *prev = nullptr;
+        ListNode *current = l;
+        ListNode *next_node = nullptr;
+        while (current != s) {
             next_node = current->next;
-            current->next = next_node->next;
-            next_node->next = pre->next;
-            pre->next = next_node;
+            current->next = prev;
+            prev = current;
+            current = next_node;
         }
 
-        return dummy.next;
+        // Connect the predecessor q to the new head of reversed sublist (prev)
+        if (q != nullptr) {
+            q->next = prev;
+        } else {
+            // If q is null, left was 1, update head to prev
+            head = prev;
+        }
+
+        // Connect the original l (now end of reversed sublist) to s
+        l->next = s;
+
+        return head;
     }
 };
