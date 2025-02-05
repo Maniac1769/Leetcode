@@ -1,26 +1,22 @@
 class Solution {
 public:
-
-    void helper(vector<int> nums, int i, vector<int> & current, vector<vector<int>> &result) {
-        int n = nums.size();
-        if(i==n) {
-            result.push_back(current);
-            return;
-        }
-
-        current.push_back(nums[i]);
-        helper(nums, i+1, current, result);
-        current.pop_back();
-        while(i+1<n && nums[i] == nums[i+1]) {
-            i++;
-        }
-        helper(nums, i+1, current, result);
+// striver
+void function(int ind,vector<int>& nums,vector<int>ds,vector<vector<int>>& ans){
+    ans.push_back(ds);
+    for(int i=ind;i<nums.size();i++){
+        // if its not a first occourance and previous is equal to ith element
+        if(i!=ind&&nums[i]==nums[i-1])continue;
+        ds.push_back(nums[i]);
+        function(i+1,nums,ds,ans);
+        ds.pop_back();
     }
+}
     vector<vector<int>> subsetsWithDup(vector<int>& nums) {
-        vector<vector<int>> result;
-        vector<int> current;
-        sort(nums.begin(), nums.end());
-        helper(nums, 0, current, result);
-        return result;
+        vector<vector<int>>ans;
+        vector<int>ds;
+        sort(nums.begin(),nums.end());
+        int n=nums.size();
+        function(0,nums,ds,ans);
+        return ans;
     }
 };
